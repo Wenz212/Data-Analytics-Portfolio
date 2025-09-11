@@ -28,9 +28,6 @@ select *
 from RETAIL_SALES_DATASET
 where price_per_unit < 0 or quantity < 0;
 
-# Standardize date formats
-select date(date) as date from RETAIL_SALES_DATASET;
- 
  
  
 ## Core Analyses

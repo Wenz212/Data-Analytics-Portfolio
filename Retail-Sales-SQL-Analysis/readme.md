@@ -33,7 +33,7 @@ The dashboard includes several key analyses:
 
 All these charts are combined into an interactive dashboard that provides insights into customer purchasing behavior, seasonality, and product appeal.
 Preview:
-![Screen Recording 2025-09-11 at 12 28 58](https://github.com/user-attachments/assets/75d41572-0586-4e0a-a7ee-d988715f3362)
+![Screen Recording 2025-09-11 at 12 28 58](https://github.com/user-attachments/assets/e2326741-ed91-43f7-9d2a-dc67f574f31d)
 
 
 Insights:

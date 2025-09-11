@@ -32,8 +32,8 @@ The dashboard includes several key analyses:
 - Basket Size Behaviors → Box plots showing transaction value distribution based on quantity purchased.
 
 All these charts are combined into an interactive dashboard that provides insights into customer purchasing behavior, seasonality, and product appeal.
-[preview:
-![Screen Recording 2025-09-11 at 12 28 58](https://github.com/user-attachments/assets/0f2438cc-7e8d-4f1d-94fd-60da1a65af59)]
+Preview:
+![Screen Recording 2025-09-11 at 12 28 58](https://github.com/user-attachments/assets/75d41572-0586-4e0a-a7ee-d988715f3362)
 
 
 Insights:

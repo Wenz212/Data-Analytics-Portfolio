@@ -37,3 +37,38 @@ Preview:
 
 
 Insights:
+
+1. How does customer age and gender influence their purchasing behavior?
+- Analysis of customer demographics (see Fig: Customer Behavior by Age and Gender) shows that 25–40 and 41–60 year olds account for the majority of sales revenue.
+- Female customers slightly outpace males in both frequency and total amount, particularly in Clothing and Beauty.
+- Younger customers (Under 25) spend more per transaction, but contribute less overall revenue due to fewer purchases.
+
+2. Are there discernible patterns in sales across different time periods?
+- Monthly sales trends (see Fig: Month Trend Line) show clear peaks in May and December, reflecting holiday and promotional cycles.
+- Seasonal aggregation (see Fig: Seasonal Pattern Pie Chart) confirms that Winter contributes the largest share of annual revenue (≈28%), while Summer lags behind (~24%).
+
+3.Which product categories hold the highest appeal among customers?
+- Clothing dominates transaction volume (see Fig: Categories by Sales), making it the most widely purchased.
+- Electronics drive higher average spend per transaction, reflecting their premium nature.
+- Beauty products are most popular with younger customers, who often make smaller basket-size purchases.
+
+4. What are the relationships between age, spending, and product preferences?
+-	The heatmap (see Fig: Age × Category Preference) highlights that:
+-	25–40 year olds are the most valuable Clothing and Electronics buyers.
+- 41–60 year olds spread their spending more evenly across categories.
+- 60+ group contributes the least, with limited but consistent Beauty purchases.
+
+5. How do customers adapt their shopping habits during seasonal trends?
+- Seasonal breakdown by product category (see Fig: Shopping Habits During Seasonal Changes) shows:
+-	Clothing peaks in Spring and Fall, aligned with seasonal wardrobe shifts.
+-	Electronics peak in Winter, largely due to holiday gifting.
+-	Beauty demand stays relatively steady, with slight increases in Summer.
+
+6. Are there distinct purchasing behaviors based on the number of items bought per transaction?
+-	Basket-size analysis (see Fig: Purchasing Behaviors by Basket Size) reveals that:
+-	2–3 item baskets dominate, both in frequency and total revenue.
+-	4–5 item baskets, while fewer, have the highest revenue per transaction.
+-	Single-item purchases are common but yield limited financial impact.
+
+Conclusion:
+Across demographic, temporal, and behavioral dimensions, the most profitable customers are 25–40 year olds, particularly female shoppers purchasing Clothing and Electronics in Winter and Spring. Retailers can optimize revenue by focusing promotions on seasonal campaigns, cross-selling strategies for medium-sized baskets, and targeted category marketing by age group.

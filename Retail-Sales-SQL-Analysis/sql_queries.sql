@@ -34,7 +34,7 @@ select date(date) as date from RETAIL_SALES_DATASET;
  
  
 ## Core Analyses
-# Customer behavior by gender
+# Customer behavior by gender and age
 select gender, avg(total_amount), avg(quantity) from RETAIL_SALES_DATASET
 group by gender;
 select 

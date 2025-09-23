@@ -75,10 +75,15 @@ Insights:
 -	Single-item purchases are common but yield limited financial impact.
 
 Key Insights
-	•	Top products/categories: e.g. “The top 3 categories (Clothing, Electronics, and Accessories) contribute ~65% of total revenue, with Product X alone generating 20%.”
-	•	Seasonality: e.g. “Sales volume peaks in December (~2.5× monthly average), confirming strong holiday-driven demand.”
-	•	Customer demographics: e.g. “Female customers account for ~60% of transactions, but male customers generate ~15% higher average basket value.”
-	•	Regional/branch trends (如果有): e.g. “Branch B outperforms others with ~40% higher revenue, despite similar transaction counts.”
+- Category performance: Clothing, Electronics, and Beauty dominate sales, with Clothing slightly leading in volume (~900 units), followed closely by Electronics (~880), while Beauty trails (~820). This concentration suggests that ~70% of sales are driven by these three categories.
+- Seasonality: Demand is highly seasonal — Winter accounts for 27.6% of annual sales, peaking in December, while Fall is lowest (23%). Spring also shows strong performance (~25.4%), highlighting two distinct seasonal surges.
+- Monthly trend: Sales spike notably in June and October–December, aligning with mid-year promotions and year-end holiday shopping.
+- Shopping habits by season: Customers spend more in Spring (≈ 46,460 in Electronics) and Winter (≈ 45,610 in Electronics), while Beauty performs more evenly across seasons.
+- Age x category preference:
+	- 25–40 customers are the biggest spenders overall (≈ 69,420), driving demand in Electronics and Clothing.
+	- 41–60 customers show steady contributions across all categories, indicating balanced purchasing power.
+	- 60+ group spends relatively less, with Beauty slightly favored.
+
 
 Conclusion
 
@@ -87,7 +92,13 @@ Across demographic, temporal, and behavioral dimensions, the most profitable cus
 
 Business Implication
 
-- Retailers should ensure adequate stock levels for top-selling categories, especially Product X, to avoid stockouts and missed revenue opportunities.
-- Holiday promotions should be scaled up in Q4, with bundled offers on electronics to capture peak demand.
-- Marketing campaigns could target male customers with premium upsell opportunities, while volume promotions (discount bundles) may appeal more to younger or female customers.
-- Underperforming branches should replicate strategies of Branch B (e.g., assortment, promotions) to close revenue gaps.
+##Inventory optimization##: Retailers should prioritize stocking Clothing and Electronics, especially ahead of Spring and Winter peaks, to prevent lost sales during demand surges.
+Seasonal promotions:
+	- Spring & Winter should be the focus of promotional budgets.
+	- Bundle Electronics + Clothing to maximize ticket size during holidays.
+	- Offer Beauty discounts in Fall/Summer to smooth out seasonality.
+Targeted marketing:
+	- Launch tech-focused campaigns for 25–40 customers, as they are the highest-spending group with strong Electronics demand.
+	- Position premium Clothing toward older demographics (41–60), who show stable purchasing behavior and willingness to pay.
+	- Design budget Beauty bundles for 60+ group to expand wallet share.
+Revenue strategy: The clear December spike suggests early Black Friday / holiday campaigns could extend the sales window and increase annual revenue by leveraging demand momentum.

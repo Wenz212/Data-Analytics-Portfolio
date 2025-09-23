@@ -87,7 +87,7 @@ Across demographic, temporal, and behavioral dimensions, the most profitable cus
 
 Business Implication
 
-	•	“Retailers should ensure adequate stock levels for top-selling categories, especially Product X, to avoid stockouts and missed revenue opportunities.”
-	•	“Holiday promotions should be scaled up in Q4, with bundled offers on electronics to capture peak demand.”
-	•	“Marketing campaigns could target male customers with premium upsell opportunities, while volume promotions (discount bundles) may appeal more to younger or female customers.”
-	•	“Underperforming branches should replicate strategies of Branch B (e.g., assortment, promotions) to close revenue gaps.”
+- Retailers should ensure adequate stock levels for top-selling categories, especially Product X, to avoid stockouts and missed revenue opportunities.
+- Holiday promotions should be scaled up in Q4, with bundled offers on electronics to capture peak demand.
+- Marketing campaigns could target male customers with premium upsell opportunities, while volume promotions (discount bundles) may appeal more to younger or female customers.
+- Underperforming branches should replicate strategies of Branch B (e.g., assortment, promotions) to close revenue gaps.

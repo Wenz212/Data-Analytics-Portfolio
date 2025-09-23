@@ -26,7 +26,7 @@ Workflow:
 
 1. Data Wrangling
    - Remove helper columns; fix types and units (e.g., cm→inch, kg→lb).
-   - Impute missing values *by variable role*: mean for continuous (`Weight`), mode for near-discrete (`Screen_Size_inch`).
+   - Impute missing values by variable role: mean for continuous (`Weight`), mode for near-discrete (`Screen_Size_inch`).
    - Normalize scalars where needed and one-hot encode screen panel types.
 A clean, well-typed table for reliable EDA and modelin.
 

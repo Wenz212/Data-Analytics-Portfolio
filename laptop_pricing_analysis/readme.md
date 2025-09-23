@@ -5,7 +5,6 @@ End-to-end workflow: data cleaning → EDA → feature engineering → regressio
 
 **Tech Stack**: Python (pandas, NumPy, scikit-learn), Matplotlib, Seaborn 
 
-Tech stack: Python (pandas, NumPy, scikit-learn, Matplotlib, Seaborn) 
 
 Business Objective:
 

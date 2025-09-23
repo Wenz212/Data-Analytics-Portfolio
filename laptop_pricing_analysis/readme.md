@@ -13,6 +13,7 @@ Business Objective:
 
   
 Objectives: 
+
 Main topic: This project investigates which laptop specifications most strongly influence pricing, and develops predictive models to estimate laptop prices with improved generalization through regularization.
 - Clean and preprocess raw laptop data.
 - Explore feature–price relationships across CPU, RAM, storage, GPU, OS, and categories.

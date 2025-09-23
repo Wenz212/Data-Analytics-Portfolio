@@ -40,8 +40,8 @@ A clean, well-typed table for reliable EDA and modelin.
 Confirms where price signal lives(CPU_frequency) and guards against “feature cargo-culting”
 
 3. Baseline - Model Development
-   - Single linear on `CPU_frequency`: **R² ≈ 0.13**, **MSE ≈ 284,583** → *underfits*.
-   - Multiple linear on key specs: **R² ≈ 0.51**, **MSE ≈ 161,681** → substantial gain.
+   - Single linear on `CPU_frequency`: R² ≈ 0.13, MSE ≈ 284,583 → *underfits*.
+   - Multiple linear on key specs: R² ≈ 0.51, MSE ≈ 161,681 → substantial gain.
    - Polynomial (CPU only) degrees 3/5: **R² ≈ 0.27/0.30**, **MSE ↓ to ~229k** → captures curvature but still limited (single-feature).
 Among the baseline models, multiple linear regression provides the best balance of fit and interpretability, confirming that laptop pricing depends on multiple specifications rather than a single feature. However, the model still shows signs of bias/variance tradeoff, motivating the use of polynomial expansion and regularization (Ridge).
 

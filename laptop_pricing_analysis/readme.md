@@ -3,7 +3,7 @@ Laptop Price Analysis & Predictive Modeling
 This project analyzes laptop specifications to understand key drivers of pricing and builds predictive models to estimate laptop prices.  
 It demonstrates a **full data analysis workflow**: data wrangling, exploratory data analysis (EDA), regression modeling, and model refinement with cross-validation and hyperparameter tuning.  
 
-Tech stack: Python (pandas, NumPy, scikit-learn), Matplotlib, Seaborn  
+Tech stack: Python (pandas, NumPy, scikit-learn, Matplotlib, Seaborn) 
 
 Business Objective:
 

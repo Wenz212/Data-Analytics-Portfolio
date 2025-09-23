@@ -81,10 +81,12 @@ Key Insights
 	•	Regional/branch trends (如果有): e.g. “Branch B outperforms others with ~40% higher revenue, despite similar transaction counts.”
 
 Conclusion
+
 Across demographic, temporal, and behavioral dimensions, the most profitable customers are 25–40 year olds, particularly female shoppers purchasing Clothing and Electronics in Winter and Spring. Retailers can optimize revenue by focusing promotions on seasonal campaigns, cross-selling strategies for medium-sized baskets, and targeted category marketing by age group.
-Business Implications
+
 
 Business Implication
+
 	•	“Retailers should ensure adequate stock levels for top-selling categories, especially Product X, to avoid stockouts and missed revenue opportunities.”
 	•	“Holiday promotions should be scaled up in Q4, with bundled offers on electronics to capture peak demand.”
 	•	“Marketing campaigns could target male customers with premium upsell opportunities, while volume promotions (discount bundles) may appeal more to younger or female customers.”

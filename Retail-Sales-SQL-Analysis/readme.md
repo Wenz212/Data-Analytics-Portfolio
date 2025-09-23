@@ -92,7 +92,7 @@ Across demographic, temporal, and behavioral dimensions, the most profitable cus
 
 Business Implication
 
-##Inventory optimization##: Retailers should prioritize stocking Clothing and Electronics, especially ahead of Spring and Winter peaks, to prevent lost sales during demand surges.
+Inventory optimization: Retailers should prioritize stocking Clothing and Electronics, especially ahead of Spring and Winter peaks, to prevent lost sales during demand surges.
 Seasonal promotions:
 	- Spring & Winter should be the focus of promotional budgets.
 	- Bundle Electronics + Clothing to maximize ticket size during holidays.

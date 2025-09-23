@@ -35,7 +35,7 @@ A clean, well-typed table for reliable EDA and modelin.
      - **Correlation and regression plots** to rank signal:
        - Stronger positive links: **`RAM_GB` (~0.55)**, **`CPU_core` (~0.46)**, **`CPU_frequency` (~0.37)**.
        - Moderate: `Storage_GB_SSD` (~0.24), `GPU`/`Category` (~0.29).
-       - Weak/negative: screen size (~-0.11), weight (~-0.05), OS (~-0.22).  
+       - Weak/negative: `screen size` (~-0.11), `weight` (~-0.05), `OS` (~-0.22).  
      - Pivot/heatmaps (e.g., `GPU × CPU_core → mean Price`) to visualize price ladders.
 Confirms where price signal lives(CPU_frequency) and guards against “feature cargo-culting”
 

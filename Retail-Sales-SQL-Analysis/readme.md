@@ -1,4 +1,5 @@
 Project Overview
+
 This project analyzes a retail sales dataset using SQL and Excel.  
 The goal is to uncover customer purchasing patterns, product performance, and seasonal trends.  
 It demonstrates core skills in data cleaning, SQL querying, and business insights generation.

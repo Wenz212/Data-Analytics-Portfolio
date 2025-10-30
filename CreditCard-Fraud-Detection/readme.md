@@ -55,7 +55,7 @@ feature selection focused on identifying those most correlated with fraudulent b
    - Standardized `Time` → `Time_scaled`  
 4. **Final Feature Set for Baseline Model:**
    ```python
-   ['V4', 'V10', 'V11', 'V12', 'V14', 'V17', 'log_amount', 'Time_scaled']---
+   ['V4', 'V10', 'V11', 'V12', 'V14', 'V17', 'log_amount', 'Time_scaled']
 
 ##  Exploratory Data Analysis (EDA)
 > Understand data distribution, detect imbalance, and visualize relationships.

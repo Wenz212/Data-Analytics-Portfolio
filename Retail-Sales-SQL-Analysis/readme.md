@@ -92,13 +92,18 @@ Across demographic, temporal, and behavioral dimensions, the most profitable cus
 
 Business Implication
 
-Inventory optimization: Retailers should prioritize stocking Clothing and Electronics, especially ahead of Spring and Winter peaks, to prevent lost sales during demand surges.
-Seasonal promotions:
-	- Spring & Winter should be the focus of promotional budgets.
-	- Bundle Electronics + Clothing to maximize ticket size during holidays.
-	- Offer Beauty discounts in Fall/Summer to smooth out seasonality.
-Targeted marketing:
+Inventory optimization: Retailers should prioritize stocking Clothing and Electronics, especially ahead of Spring and Winter peaks, to prevent lost sales during demand surges.  
+
+Seasonal promotions:  
+
+	- Spring & Winter should be the focus of promotional budgets.  
+	- Bundle Electronics + Clothing to maximize ticket size during holidays.  
+	- Offer Beauty discounts in Fall/Summer to smooth out seasonality.  
+	
+Targeted marketing:  
+
 	- Launch tech-focused campaigns for 25–40 customers, as they are the highest-spending group with strong Electronics demand.
 	- Position premium Clothing toward older demographics (41–60), who show stable purchasing behavior and willingness to pay.
-	- Design budget Beauty bundles for 60+ group to expand wallet share.
+	- Design budget Beauty bundles for 60+ group to expand wallet share.  
+	
 Revenue strategy: The clear December spike suggests early Black Friday / holiday campaigns could extend the sales window and increase annual revenue by leveraging demand momentum.

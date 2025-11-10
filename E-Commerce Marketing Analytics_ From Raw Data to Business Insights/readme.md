@@ -192,6 +192,3 @@ Cluster-robust SEs validate model stability under customer-level correlation.
 M.S. Economics | Marketing & Data Analytics  
 📊 Specializing in causal analysis, behavioral insight, and data-driven marketing strategy  
 🔗 [GitHub](https://github.com/Wenz212) · [LinkedIn](https://www.linkedin.com/in/wen-zhang-35b44a324)
-
-## License
-MIT License — Open for educational and portfolio use.

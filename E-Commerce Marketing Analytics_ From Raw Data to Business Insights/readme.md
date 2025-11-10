@@ -1,122 +1,197 @@
-# E-Commerce Marketing Analytics  
+# 🛍️ E-Commerce Marketing Analytics  
 **From Data to Business Insights**  
-*A data-driven business analysis of coupon effectiveness and customer retention for an online retailer.*
+*A full-funnel and retention-driven analysis of coupon marketing performance in an online retail context.*
 
 ---
 
-## Dataset Source
-The dataset used in this project originates from **[Marketing Insights for E-commerce Company (Kaggle)](https://www.kaggle.com/datasets/rishikumarrajvansh/marketing-insights-for-e-commerce-company?resource=download)**.  
-It includes detailed customer, product, and transactional data — covering **coupon usage, tax amount, product category, gender, and location** — providing a realistic simulation of marketing analytics in an e-commerce environment.
+## 1. Business Context & Objective
+### 🎯 Core Question  
+> **How do discount coupons affect customer spending behavior and long-term engagement, and how can we maximize revenue without undermining margins?**
+
+The project transforms raw transactional data into strategic insights to support **marketing optimization** and **customer lifecycle management**.  
+It integrates **A/B testing logic**, **funnel conversion analysis**, **cohort retention tracking**, and **econometric modeling** to evaluate both short-term and long-term effects.
+
+**Specific business objectives:**
+1. Quantify the **incremental revenue impact** of coupon use.  
+2. Identify **conversion frictions** across the promotional funnel.  
+3. Evaluate **retention decay patterns** and opportunities for reactivation.  
+4. Translate findings into **actionable growth strategies**.
 
 ---
 
-## Objective
-To answer the business question:  
-> **“How do discount coupons influence customer spending behavior, and what strategies can increase long-term revenue without eroding margins?”**
+## 2. Dataset & Structure
+**Source:** [Marketing Insights for E-commerce Company (Kaggle)](https://www.kaggle.com/datasets/rishikumarrajvansh/marketing-insights-for-e-commerce-company?resource=download)  
+The dataset simulates a full marketing ecosystem including product, customer, and transactional information.
 
-Specifically, this analysis aims to:
-- Quantify the **impact of coupon usage** on order value and sales volume.  
-- Understand **customer funnel behavior** (view → click → redemption).  
-- Evaluate **retention patterns** and **customer lifetime potential**.  
-- Translate findings into **strategic business recommendations** for targeted marketing.
+**Entities**
+| Table | Grain | Key Variables |
+|--------|--------|----------------|
+| `fact_sales` | Order-level | Transaction_ID, CustomerID, Product_Category, Discount_pct, tax_amount, net_amount, Coupon_Status (`Not Used`, `Clicked`, `Used`), AB_Groups |
+| `dim_customer` | Customer-level | Gender, Location, Tenure_Months, spending and frequency bins |
+| `dim_product` | Product-level | Product_Category, avg_discount_pct, avg_tax_rate |
 
----
-
-## Design
-| Element | Description |
-|----------|-------------|
-| **Treatment Definition** | Customers who used coupons (`Coupon_Status = 'Used'`) are defined as the **treatment group**; others serve as control. |
-| **Randomization Logic** | Data simulates natural A/B exposure via historical coupon offers by email and website banners. |
-| **Duration** | Full year of sales data (Jan–Dec 2019). |
-| **Observation Level** | Order-level transactions, clustered by `CustomerID`. |
-| **Segmentation** | Customers categorized into Low / Mid / High / VIP segments based on total spending distribution. |
+**Granularities applied**
+- **Order-level models:** cluster standard errors at `CustomerID`
+- **Customer-level summaries:** use HC3 robust SEs (no clustering)
+- **Cohorts:** grouped by first purchase month → `cohort_index` for months since acquisition
 
 ---
 
-## Metrics
-| **Type** | **Metric** | **Description** | **Formula** |
-|-----------|-------------|-----------------|--------------|
-| **Primary KPI** | **Net Revenue per Order** | Core profit driver | `net_amount` |
-| **Secondary KPIs** | **AOV (Average Order Value)** | `mean(net_amount)` |
-|  | **Coupon Usage Rate** | % of orders using a coupon | `n_used / n_total` |
-|  | **CTR (Click-Through Rate)** | Customer engagement with coupons | `clicked / shown` |
-|  | **Retention (Cohort-based)** | Average orders per customer by cohort month | Aggregated from transaction data |
+## 3. Analytical Framework
+
+### 🧩 Design Logic
+| Component | Description |
+|------------|-------------|
+| **Treatment Group** | Orders where `Coupon_Status = 'Used'` |
+| **Control Group** | Orders without coupon usage |
+| **Randomization Proxy** | Simulated through historical coupon exposure (emails, banners) |
+| **Period Covered** | Jan–Dec 2019 |
+| **Segmentation** | Customer value groups: Low / Mid / High / VIP |
 
 ---
 
-## Methodology
-| **Technique** | **Purpose** |
-|----------------|-------------|
-| **Welch’s T-test / Mann–Whitney U test** | Compare treatment vs control mean differences under heteroskedasticity. |
-| **Cluster-Robust OLS** | Estimate the effect of coupon use on log(order value), clustering SEs by `CustomerID`. |
-| **Cohort Analysis** | Track repurchase rate and engagement across customer acquisition months. |
-| **Funnel Analysis** | Measure drop-off rates between “shown → clicked → used” stages. |
-| **Bootstrap CI** | Non-parametric estimation for mean difference confidence intervals. |
+## 4. Key Metrics & KPIs
+| **Metric** | **Business Meaning** | **Formula** |
+|-------------|----------------------|--------------|
+| **Total Sales (YTD)** | Core revenue driver | `sum(net_amount)` |
+| **AOV (Average Order Value)** | Revenue per transaction | `mean(net_amount)` |
+| **Coupon Usage Rate** | Adoption of promotions | `n_used / n_orders` |
+| **CTR (Click-Through Rate)** | Coupon engagement | `clicked / shown` |
+| **Use Rate** | Coupon redemption efficiency | `used / shown` |
+| **Use_given_Click** | Conversion after interest | `used / clicked` |
+| **Retention (Cohort)** | Activity over months since first purchase | Avg. orders per customer per month |
 
 ---
 
-## Results Summary
+## 5. Methods & Statistical Approach
+This analysis employs both **descriptive analytics** (funnel, retention, cohort) and **causal inference** (regression modeling).
 
-### **Coupon Effect (OLS, clustered by CustomerID)**
+| **Method** | **Purpose** | **Implementation** |
+|-------------|-------------|--------------------|
+| **Welch’s T-test** | Compare group means under unequal variances | Test coupon vs. no-coupon AOV & revenue |
+| **Mann–Whitney U test** | Validate robustness without normality | Confirms distributional shift |
+| **Bootstrap CI (95%)** | Estimate mean difference CI non-parametrically | 10,000 resamples per group |
+| **Cluster-Robust OLS** | Estimate coupon effect on order value | SEs clustered by `CustomerID` |
+| **Cohort Analysis** | Measure monthly retention per acquisition cohort | Pivot by `cohort_month` × `cohort_index` |
+| **Funnel Conversion Analysis** | Diagnose leakage from impressions to usage | CTR, Use Rate, Use_given_Click |
+| **Correlation Matrix (KPI)** | Examine dependency between sales, AOV, and coupon rate | Pearson r across months |
+
+---
+
+## 6. Results & Insights
+
+### 6.1 A/B Statistical Tests
+**Finding:** Coupons significantly increase total sales but slightly reduce per-order value.  
+- **Welch’s T-test:** significant difference in total sales (p < 0.001)  
+- **Mann–Whitney U test:** confirms direction (p < 0.01)  
+- **Bootstrap CI:** 95% confidence interval for mean difference excludes 0  
+
+✅ **Conclusion:** Coupons boost transaction volume, not per-transaction margin.  
+
+---
+
+### 6.2 Regression Analysis (Cluster-Robust OLS)
+Model specification:
 \[
-\log(1 + \text{net\_amount}) = \beta_0 + \beta_1 \text{used\_coupon} + \beta_2 \text{discount\_amount} + \beta_3 \text{tax\_amount} + \text{FE(Location × Gender)} + \varepsilon
+\log(1 + net\_amount) = \beta_0 + \beta_1 \text{used\_coupon} + \beta_2 \text{discount\_amount} + \beta_3 \text{tax\_amount} + \text{FE(Location × Gender)} + \varepsilon
 \]
 
-| Variable | Coefficient | Significance | Interpretation |
-|-----------|--------------|---------------|----------------|
-| **used_coupon** | –0.196 | ***p < 0.001*** | Coupon usage slightly reduces order value (expected from discounts). |
-| **discount_amount** | +0.013 | **p < 0.01** | Moderate discounts increase spending — suggesting positive elasticity. |
-| **tax_amount** | +0.015 | **p < 0.01** | Proxy for higher-priced purchases. |
-| **Tenure_Months** | –0.001 | n.s. | Customer experience length not a strong predictor. |
+| Variable | Coefficient | Significance | Business Interpretation |
+|-----------|--------------|---------------|--------------------------|
+| `used_coupon` | **–0.196** | ***p < 0.001*** | Coupons reduce average order value (expected margin tradeoff). |
+| `discount_amount` | **+0.013** | **p < 0.01** | Reasonable discounts stimulate higher basket sizes. |
+| `tax_amount` | **+0.015** | **p < 0.01** | Proxy for expensive orders — validates elasticity pattern. |
+| `Tenure_Months` | –0.001 | n.s. | Customer seniority alone does not affect spending. |
 
-**R² = 0.195** — model explains ~20% of variation in log(order value).  
-**Cluster-robust SE** confirms robustness against within-customer heterogeneity.
-
----
-
-### **Funnel Insights**
-| Stage | Metric | Observation |
-|--------|---------|--------------|
-| Shown → Clicked | **CTR ≈ 0.8–1.0** | Customers are highly responsive to coupon visibility. |
-| Clicked → Used | **Use Rate ≈ 0.3–0.4** | Conversion remains low; friction likely in checkout or redemption. |
-| High-Value Segments | **Use_given_Click ↑** | VIP and High segments use coupons more efficiently. |
+**R² = 0.195**, meaning roughly 20% of spending variance is explained by marketing and basket composition.  
+Cluster-robust SEs validate model stability under customer-level correlation.
 
 ---
 
-### **Retention Analysis (Cohort Heatmap)**
-- Cohorts show strong order concentration in the **first purchase month**, then decline sharply after **Month 3**.  
-- Later cohorts (Q3–Q4) perform slightly better, possibly due to improved marketing campaigns.
+### 6.3 Funnel & Conversion Insights
+| **Stage** | **Metric** | **Observation** |
+|------------|-------------|----------------|
+| Shown → Clicked | **CTR ≈ 0.8–1.0** | High engagement; coupon messages attract attention. |
+| Clicked → Used | **Use Rate ≈ 0.3–0.4** | Conversion lag suggests checkout friction or lack of perceived value. |
+| Segment Effect | **High/VIP users convert better** | Indicates coupons reinforce loyalty within premium groups. |
+
+💡 *Interpretation:* Awareness campaigns are effective, but conversion friction reduces realized impact.
 
 ---
 
-## Validation
-- **Balance Test:** No significant difference in tenure or location between A/B groups (p > 0.8).  
-- **Sensitivity Checks:** Results hold across parametric (t-test) and non-parametric (bootstrap / Mann–Whitney) methods.  
-- **Multicollinearity:** Variance inflation checked; interaction fixed effects (Gender × Location) mitigate bias.
+### 6.4 Cohort Retention (Repeat Purchase Behavior)
+- Average orders per cohort drop sharply after **month 3**, confirming short-term engagement.  
+- Early cohorts show higher initial intensity; later (Q3–Q4) cohorts retain slightly better.  
+- Indicates **short-lived promotion lift**, not sustained behavioral change.
+
+📈 *Retention window ≈ 3 months* → Ideal reactivation timing.
 
 ---
 
-## Business Implications & Recommendations
-
-| **Finding** | **Business Implication** | **Actionable Strategy** |
-|--------------|--------------------------|--------------------------|
-| Coupons reduce order value slightly but raise conversion | Overuse of coupons erodes margin | Apply tiered discounting — smaller for repeat buyers, higher for first-time users |
-| Retention drops after 3 months | Customers disengage quickly post-purchase | Launch post-purchase reactivation campaigns (email, credits) around Month 2 |
-| High CTR but low redemption | Awareness > conversion gap | Simplify coupon redemption flow or bundle with loyalty points |
-| Low-value customers dominate (≈89%) | Heavy dependency on infrequent buyers | Introduce **membership tiers** or **free shipping thresholds** to increase spend frequency |
-| Sales driven more by volume than coupon efficiency | Growth relies on traffic, not discounting | Focus investment on targeted ad spend or referral programs instead of generic discounts |
+### 6.5 KPI Correlation Dashboard
+| Metric Pair | Correlation (r) | Insight |
+|--------------|----------------|----------|
+| Total Sales ↔ AOV | **0.73** | Revenue mainly scales with average basket value. |
+| Total Sales ↔ Coupon Usage | **0.23** | Coupons weakly correlated with total revenue — volume, not margin, drives sales. |
+| AOV ↔ Coupon Usage | **0.26** | Coupons may increase small-basket frequency rather than premium sales. |
 
 ---
 
-## Tools Used
-- **Python:** pandas, numpy, statsmodels, scipy, seaborn, matplotlib  
-- **Statistical Techniques:** Welch T-test, Cluster-robust OLS, Bootstrap CI, Cohort Analysis  
-- **Visualization:** Funnel chart, Correlation heatmap, Cohort retention, KPI dashboard  
-- **Environment:** Jupyter Notebook (Python 3.12)
+## 7. Validation & Diagnostic Checks
+- ✅ **Balance Test:** No significant difference in location or tenure between control and treatment (p > 0.8).  
+- ✅ **Robustness:** Mann–Whitney and Bootstrap replicate the same direction of effects.  
+- ✅ **Fixed Effects:** `Location × Gender` fixed effects absorb multicollinearity.  
+- ✅ **Cluster Robustness:** Controls for within-customer dependency (Eicker–Huber–White sandwich estimator).
 
 ---
 
-## Author
+## 8. Strategic Implications & Recommendations
+
+| **Key Finding** | **Business Implication** | **Recommended Action** |
+|------------------|--------------------------|--------------------------|
+| Coupons lift order count but reduce order value | Margin erosion risk | Use **tiered discounts** — higher for new users, lower for repeat ones |
+| Retention drops after Month 3 | Promotions are short-term drivers | Implement **reactivation campaigns** around Day 60–90 |
+| High CTR but low redemption | Checkout friction / UX issue | Simplify redemption flow or **auto-apply coupons** |
+| 89% Low-value customers | Revenue skewed to long-tail buyers | Introduce **membership tiers** or **spend thresholds** to grow loyalty |
+| Category sensitivity varies | Misaligned discount depth | Apply **category-specific elasticity rules** (10%, 15%, 20%) |
+| High-value customers convert efficiently | High ROI audience | Allocate **premium incentives** (exclusive access, early deals) |
+
+---
+
+## 9. Tools, Techniques & Deliverables
+**Languages / Tools:** Python 3.12, Jupyter Notebook  
+**Libraries:** pandas, numpy, scipy, statsmodels, seaborn, matplotlib  
+**Techniques:**  
+- Inferential tests (Welch, Mann–Whitney, Bootstrap)  
+- Cluster-robust econometrics  
+- Funnel and retention visualization  
+- KPI dashboarding and correlation matrix  
+
+**Deliverables:**  
+- `ecommerce_analysis.ipynb` — complete reproducible notebook  
+- `ecommerce_analysis.pdf` — formatted report  
+- **Cohort heatmaps**, **Funnel charts**, **Regression tables**, **KPI dashboards**
+
+---
+
+## 10. Business Summary (Executive Takeaway)
+> Coupons are **effective short-term volume drivers** but **inefficient profit levers**.  
+> The promotion mechanism increases engagement and repeat orders briefly (≈3 months) but requires **post-promotion reactivation** to sustain customer value.
+
+**Strategic next steps:**
+- Optimize **discount tiers by segment** and **category elasticity**.  
+- Launch **reactivation flows at Month 2–3**.  
+- Enhance **UX for coupon redemption** to convert interest into sales.  
+- Shift focus from broad discounting to **targeted incentives + loyalty programs**.  
+- Integrate these KPIs into Tableau for continuous performance tracking.
+
+---
+
+## 11. Author
 **Wen Zhang (Wenz212)**  
-Master’s in Economics | Data Analytics Portfolio  
-🔗 [GitHub](https://github.com/Wenz212) | [LinkedIn](https://www.linkedin.com/in/wenz212)
+M.S. Economics | Marketing & Data Analytics  
+📊 Specializing in causal analysis, behavioral insight, and data-driven marketing strategy  
+🔗 [GitHub](https://github.com/Wenz212) · [LinkedIn](https://www.linkedin.com/in/wen-zhang-35b44a324)
+
+## License
+MIT License — Open for educational and portfolio use.

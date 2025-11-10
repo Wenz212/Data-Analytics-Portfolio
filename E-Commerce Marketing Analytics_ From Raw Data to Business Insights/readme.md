@@ -3,6 +3,8 @@
 *A full-funnel and retention-driven analysis of coupon marketing performance in an online retail context.*
 
 ---
+## Dashboard banner preview
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/3050360a-7383-4f49-9d77-cc92f692f41e" />
 
 ## 1. Business Context & Objective
 ### 🎯 Core Question  
@@ -177,6 +179,7 @@ Cluster-robust SEs validate model stability under customer-level correlation.
 ## 10. Business Summary (Executive Takeaway)
 > Coupons are **effective short-term volume drivers** but **inefficient profit levers**.  
 > The promotion mechanism increases engagement and repeat orders briefly (≈3 months) but requires **post-promotion reactivation** to sustain customer value.
+
 
 **Strategic next steps:**
 - Optimize **discount tiers by segment** and **category elasticity**.  

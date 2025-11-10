@@ -4,6 +4,9 @@
 This project analyzes and models **credit card transaction data** to detect fraudulent activities.  
 It focuses on **Exploratory Data Analysis (EDA)**, **feature engineering**, and **model evaluation**, providing a strong analytical baseline before experimenting with advanced machine learning methods.  
 
+## Result preview dashboard
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/2f6b7379-833a-4990-a733-70165644ffe8" />
+
 ##  Objective  
 To build a **data-driven fraud detection baseline** through exploratory analysis and logistic regression modeling,  
 and later extend to **tree-based ensemble models** (Random Forest, XGBoost).  

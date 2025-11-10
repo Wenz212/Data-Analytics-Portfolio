@@ -5,6 +5,8 @@ End-to-end workflow: data cleaning → EDA → feature engineering → regressio
 
 **Tech Stack**: Python (pandas, NumPy, scikit-learn), Matplotlib, Seaborn 
 
+**Visualization Sample Dashboard**
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ef2e07ac-ae56-4b2c-a38b-d7ea60e4f329" />
 
 Business Objective:
 
